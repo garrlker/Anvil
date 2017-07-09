@@ -20,6 +20,7 @@ class CreateProjectsTable extends Migration
             $table->timestamps();
             $table->text('name');
             $table->text('repo_url');
+            $table->text('description');
             $table->integer('number_of_pushes');
             //$table->timestamp('last_pushed');
         });

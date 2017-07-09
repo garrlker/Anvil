@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/index', 'ProjectController@index')->name('ShowProjects');
-Route::get('/add', 'ProjectController@store')->name('AddProject');
+Route::post('/add', 'ProjectController@store')->name('AddProject');
