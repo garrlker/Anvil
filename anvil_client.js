@@ -32,7 +32,7 @@ function pull(path, repo_url){
 setInterval( function() {
     request(String(websiteURL) + '/api/ping/' + String(projectUUID), function (error, response, body) {
         var data = JSON.parse(body);
-        console.log('beat');
+        //console.log('beat');
         if(data['command'] == 'pull'){
             pull(data['file_path'],data['repo_url']);
             request(String(websiteURL) + '/api/setToIdle/' + String(projectUUID));
