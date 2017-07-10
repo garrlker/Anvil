@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/ping/{uuid}', 'ProjectApiController@ping')->name('PingProjectInfo');
+Route::get('/setToIdle/{uuid}', 'ProjectApiController@setCommandToIdle')->name('SetToIdle');
+

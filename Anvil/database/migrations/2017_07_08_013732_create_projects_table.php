@@ -15,14 +15,17 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->timestamps();
+            $table->uuid('uuid');
             $table->text('name');
             $table->text('repo_url');
             $table->text('description');
+            $table->text('file_path');
+            $table->text('command');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
             $table->integer('number_of_pushes');
-            //$table->timestamp('last_pushed');
+            $table->timestamp('last_pushed')->default(DB::raw('CURRENT_TIMESTAMP'));;
         });
     }
 

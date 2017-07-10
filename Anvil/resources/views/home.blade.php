@@ -9,7 +9,6 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#projectsList" data-toggle="tab">Projects</a></li>
                         <li><a href="#addProject" data-toggle="tab">Add Project</a></li>
-                        <li><a href="#tab3default" data-toggle="tab">Foo</a></li>
                     </ul>
                 </div>
                 <div class="panel-body">
@@ -17,13 +16,12 @@
                         <div class="tab-pane fade in active" id="projectsList">
                             <ul class="list-group">
                                 @foreach($projects as $project)
-
                                         <div class="panel panel-primary">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title">
                                                     {{$project->name}}
                                                     <div class="btn-group pull-right">
-                                                        <a href="#" class="btn btn-info btn-sm">View</a>
+                                                        <a href="/viewProject/{{$project->uuid}}" class="btn btn-info btn-sm">View</a>
                                                         <a href="#" class="btn btn-warning btn-sm">Edit</a>
                                                         <a href="#" class="btn btn-danger btn-sm">Delete</a>
                                                     </div>
@@ -44,13 +42,19 @@
                                     <div class="form-group">
                                         <label for="inputName" class="col-lg-2 control-label">Name</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" name="projName" id="inputName" placeholder="Name" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                                            <input type="text" class="form-control" name="projName" id="inputName" placeholder="Name" autocomplete="off" required="true">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputUrl" class="col-lg-2 control-label">Repo URL</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" name="repoURL" id="inputUrl" placeholder="Url" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                                            <input type="text" class="form-control" name="repoURL" id="inputUrl" placeholder="Url" autocomplete="off" required="true">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPath" class="col-lg-2 control-label">File Path</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" name="filePath" id="inputPath" placeholder="Path your commits are pushed to" autocomplete="off" required="true">
                                         </div>
                                     </div>
                                     <div class="form-group">

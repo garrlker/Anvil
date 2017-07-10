@@ -18,5 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/index', 'ProjectController@index')->name('ShowProjects');
+Route::get('/viewProject/{project_uuid}', 'ProjectController@viewProject')->name('ViewProject');
 Route::post('/add', 'ProjectController@store')->name('AddProject');
+
