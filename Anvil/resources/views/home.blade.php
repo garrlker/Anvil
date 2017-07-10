@@ -48,13 +48,13 @@
                                     <div class="form-group">
                                         <label for="inputUrl" class="col-lg-2 control-label">Repo URL</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" name="repoURL" id="inputUrl" placeholder="Url" autocomplete="off" required="true">
+                                            <input type="text" class="form-control" name="repoURL" id="inputUrl" placeholder="Address to your repo" autocomplete="off" required="true">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPath" class="col-lg-2 control-label">File Path</label>
                                         <div class="col-lg-10">
-                                            <input type="text" class="form-control" name="filePath" id="inputPath" placeholder="Path your commits are pushed to" autocomplete="off" required="true">
+                                            <input type="text" class="form-control" name="filePath" id="inputPath" placeholder="Filepath your commits are pushed to on your server" autocomplete="off" required="true">
                                         </div>
                                     </div>
                                     <div class="form-group">

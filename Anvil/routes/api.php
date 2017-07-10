@@ -19,4 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/ping/{uuid}', 'ProjectApiController@ping')->name('PingProjectInfo');
 Route::get('/setToIdle/{uuid}', 'ProjectApiController@setCommandToIdle')->name('SetToIdle');
-
+Route::post('/deploy/{project_uuid}', 'ProjectController@deploy')->name('DeployProjectApi');

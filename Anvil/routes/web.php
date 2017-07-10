@@ -22,4 +22,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/index', 'ProjectController@index')->name('ShowProjects');
 Route::get('/viewProject/{project_uuid}', 'ProjectController@viewProject')->name('ViewProject');
 Route::post('/add', 'ProjectController@store')->name('AddProject');
+Route::get('/deploy/{project_uuid}', 'ProjectController@deploy')->name('DeployProject');
+
+Route::get('/client', function(){
+    return view('client');
+});
 
