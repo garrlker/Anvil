@@ -1,7 +1,7 @@
 var request = require('request');
 var exec = require("child_process").exec;
 
-var projectUUID = "c184acc0-6531-11e7-af46-4b4fe6c5dd10";//Please place your Project's UUID here
+var projectUUID = "088b2f50-6596-11e7-92ab-292662e1f152";//Please place your Project's UUID here
 var websiteURL  = "http://ec2-34-211-205-8.us-west-2.compute.amazonaws.com"
 
 function test(path){
@@ -32,7 +32,7 @@ function pull(path, repo_url){
 setInterval( function() {
     request(String(websiteURL) + '/api/ping/' + String(projectUUID), function (error, response, body) {
         var data = JSON.parse(body);
-        //console.log(data);
+        console.log('beat');
         if(data['command'] == 'pull'){
             pull(data['file_path'],data['repo_url']);
             request(String(websiteURL) + '/api/setToIdle/' + String(projectUUID));
