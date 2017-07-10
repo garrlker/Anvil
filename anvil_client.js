@@ -2,7 +2,7 @@ var request = require('request');
 var exec = require("child_process").exec;
 
 var projectUUID = "c184acc0-6531-11e7-af46-4b4fe6c5dd10";//Please place your Project's UUID here
-
+var websiteURL  = "http://ec2-34-211-205-8.us-west-2.compute.amazonaws.com"
 
 function test(path){
     exec('ls', {cwd: path}, function(error, stdout) {
@@ -30,15 +30,15 @@ function pull(path, repo_url){
 
 //Every 5 seconds check command and act accordingly
 setInterval( function() {
-    request('http://anv.il/api/ping/' + String(projectUUID), function (error, response, body) {
+    request(String(websiteURL) + '/api/ping/' + String(projectUUID), function (error, response, body) {
         var data = JSON.parse(body);
         //console.log(data);
         if(data['command'] == 'pull'){
             pull(data['file_path'],data['repo_url']);
-            request('http://anv.il/api/setToIdle/' + String(projectUUID));
+            request(String(websiteURL) + '/api/setToIdle/' + String(projectUUID));
         }else if(data['command'] == 'clone'){
             clone(data['file_path'],data['repo_url']);
-            request('http://anv.il/api/setToIdle/' + String(projectUUID));
+            request(String(websiteURL) + '/api/setToIdle/' + String(projectUUID));
         }
     });
 }, 5000);
