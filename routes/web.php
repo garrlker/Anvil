@@ -12,9 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 });
+Route::get('/authorize', 'HomeController@github_authorize')->name('github_auth');
+Route::get('/authcallback', 'HomeController@authcallback')->name('authcallback');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::resource('sites','ProjectController');
