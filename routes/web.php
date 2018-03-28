@@ -14,12 +14,23 @@
 Route::get('/', function () {
     return view('homepage');
 });
-Route::get('/authorize', 'HomeController@github_authorize')->name('github_auth');
-Route::get('/authcallback', 'HomeController@authcallback')->name('authcallback');
+
+
+
+//Registration
+Route::get('/sourceControlSetup', 'HomeController@linkSourceControl')->name('authorize_source_control');
+Route::get('/authcallback', 'HomeController@GH_AuthCallback')->name('gh_auth_callback');
+Route::get('/registrationCompleted', 'HomeController@registrationCompleted')->name('registrationCompleted');
+Route::get('/userSettings/{user}','HomeController@userSettings')->name('userSettings');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 
 Route::resource('sites','ProjectController');
+
+Route::get('/test', function(){
+   event(new \App\Events\TestFire());
+   return 'fired';
+});

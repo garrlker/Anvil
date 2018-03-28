@@ -15,7 +15,7 @@ class GithubAuthorizations extends Migration
     {
         Schema::create('github_authorizations', function(Blueprint $table){
             $table->string('state');
-            $table->integer('user_id')->unique();
+            $table->uuid('user_id')->unique();
         });
     }
 

@@ -10,8 +10,11 @@
 
     <title>{{ config('app.name') }}</title>
 
+
+    <!--Webpack this sometime-->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
     <!-- Styles -->
-    @if(1)
+    @if(0)
         <link href="{{ asset('css/dark.css') }}" rel="stylesheet">
     @else
         <link href="{{ asset('css/light.css') }}" rel="stylesheet">
@@ -24,14 +27,14 @@
 </head>
 <body>
         <nav class="navbar navbar-dark" style="background-color: #FF9800">
-            <a class="navbar-brand" href="#">Anvil</a>
+            <a class="navbar-brand" href="{{route('dashboard')}}">Anvil</a>
             <ul class="nav">
                  <li class="nav-item nav-link">
                      @auth
-                     <a href="{{ url('/home') }}" style="color: #FFFFFF">Home</a>
+
                      @else
-                         <a href="{{ route('login') }}">Login</a>
-                         <a href="{{ route('register') }}">Register</a>
+                         <a class="text-white" href="{{ route('login') }}">Login</a>
+                         <a class="text-white" href="{{ route('register') }}">Register</a>
                          @endauth
                  </li>
 
@@ -44,7 +47,7 @@
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="{{route('userSettings',Auth::user()->id)}}">Settings</a>
                         <a class="dropdown-item bg-danger" href="#">Logout</a>
                     </div>
                 </div>

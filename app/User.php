@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'id','name', 'email', 'password',
     ];
 
     /**
@@ -27,6 +27,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token', 'github_access_token'
     ];
+
+    public $incrementing = false;
 
     public function githubAuth(){
         return $this->hasOne('App\GithubAuth','user_id','id');
